@@ -3,37 +3,39 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javamesoddokadai5;
+package javamesoddokadai6;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
+import java.util.HashMap;
 /**
  *
  * @author t.k
  */
-public class javamesoddokadai5 extends HttpServlet {
+public class javamesoddokadai6 extends HttpServlet{
+            String[]databese(int data){
+            String[] data1 = {"名前","生年月日","住所"};
+            String[] data2 = {"名前2","生年月日","住所"};
+            String[] data3 = {"名前","生年月日","住所"};
+            if(data == 1){return data1;}
+            else if (data == 2){return data2;}
+            else{return data2;}
+          }
+              
 
-  
-       ArrayList<String> data1 = new ArrayList<String>();{
-           data1.add("人物のID");
-           data1.add("名前");
-           data1.add("生年月日");
-           data1.add("住所");
-    }
-        
-       protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            out.print(data1.get(1)+"<br>");
-            out.print(data1.get(2)+"<br>");
-            out.print(data1.get(3)+"<br>");
+        for(int i = 0 ;i <  databese(2).length; i++){
+        out.print(databese(2)[i]);
     }
+        }
     }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -73,5 +75,5 @@ public class javamesoddokadai5 extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-}
 
+}
