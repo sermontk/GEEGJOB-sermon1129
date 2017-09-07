@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package blackjack1;
+package javaclasskadai;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,35 +16,30 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author t.k
  */
-public class Game extends HttpServlet {
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+public class javaclasskadai extends HttpServlet {
+    //Humanクラスを宣言
+    class human {
+    //Height、Weightクラスを宣言
+        public int Height = 0;
+        public int Weight = 0;
+        //メソッドを宣言
+        public void sethuman(int a,int b){
+            this.Height = a;
+            this.Weight = b;
+        }
+       
+    }
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            Dealer dealer = new Dealer();
-            User player = new User();
-            
-            out.println("全体のカードを表示します"+"<br>");
-            out.println(dealer.cards+"<br>");
-            out.println("この中からカードを二枚選択してください。"+"<br>");
-            out.println(dealer.mycard+"<br>");
-            
-            
-            
-            
-            
+            human Akun = new human();
+            Akun.sethuman(175,75);
+            out.print(Akun.Height+","+Akun.Weight);
+             }
+          
         }
-    }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
